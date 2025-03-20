@@ -15,9 +15,12 @@ async function createConnection() {
     console.error('Unable to connect to the database:', error);
   }
 }
-createConnection();
 
 
+app.get('/', (req, res) => {
+    // createConnection();
+    res.status(200).json('Home page');
+});
 
 
 app.get('/home', (req, res) => {
