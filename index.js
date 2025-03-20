@@ -13,9 +13,13 @@ const supabase = createClient('https://eyxccahssmwxluobjzyb.supabase.co', 'eyJhb
 app.get('/', (req, res) => {
     async function fetchShops() {
   try {
-    const {data, error} = await supabase.from('Shops').select();
+    const {shops, shopsError} = await supabase.from('Shops').select();
+    const {coupons, couponsError} = await supabase.from('Coupons').select();
+    const {meds, medsError} = await supabase.from('Meds').select();
+    const {orders, ordersError} = await supabase.from('Orders').select();
+    const {cart, cartError} = await supabase.from('Cart').select();
     // console.log(data);
-    res.status(200).json(JSON.stringify(data, null, 2));
+    res.status(200).json(JSON.stringify({shops, coupons, meds, orders, cart}, null, 2));
     console.log('Connection to SUPABASE has been established successfully.');
   } catch (error) {
     console.error('Unable to connect to the database:', error);
