@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
     const {orders, ordersError} = await supabase.from('Orders').select();
     const {cart, cartError} = await supabase.from('Cart').select();
     // console.log(data);
-    res.status(200).json(JSON.stringify({shops, coupons, meds, orders, cart}, null, 2));
+    res.status(200).json(JSON.stringify(shops, null, 2));
     console.log('Connection to SUPABASE has been established successfully.');
   } catch (error) {
     console.error('Unable to connect to the database:', error);
