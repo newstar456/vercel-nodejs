@@ -16,9 +16,9 @@ async function createConnection() {
   }
 }
 
-
+createConnection();
 app.get('/', (req, res) => {
-    // createConnection();
+
     res.status(200).json('Home page');
 });
 
