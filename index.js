@@ -10,7 +10,7 @@ const supabase = createClient('https://eyxccahssmwxluobjzyb.supabase.co', 'eyJhb
 
 
 
-app.get('/', (req, res) => {
+app.get('/shops', (req, res) => {
     async function fetchShops() {
   try {
     const {data, shopsError} = await supabase.from('Shops').select();
